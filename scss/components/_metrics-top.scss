@@ -1,0 +1,62 @@
+// -----------------------------
+// = Top Daily Metrics
+// -----------------------------
+.top-metrics {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	div {
+		padding: 8px 5px;
+		order: 0;
+		flex: 1;
+		align-self: auto;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-size: responsive 16px 18px;
+		font-range: $small $x-large;
+		text-align: center;
+		border: 1px solid $neutralGreyLight;
+		border-top-width: 0;
+		border-left-width: 0;
+		&:first-of-type {
+			border-left-width: 1px;
+		}
+		span {
+			&:first-child {
+				font-weight: bold;
+			}
+			&.small {
+				font-size: 12px;
+			}
+		}
+	}
+}
+
+// Landscape
+.iPhone,
+.Android {
+	.top-metrics {
+		@media only screen and (orientation: landscape) {
+			display: none;
+		}
+	}
+}
+
+// Metric Name
+.metric-name {
+	color: $neutralGreyDark;
+	font-size: 14px;
+	font-range: $small $x-large;
+	&:before {
+		content: attr(metrics-label);
+	}
+	@media (max-width: $medium) {
+		&:before {
+			content: attr(metrics-abbr);
+		}
+	}
+}
